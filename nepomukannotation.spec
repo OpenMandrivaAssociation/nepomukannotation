@@ -4,13 +4,14 @@ Release:       %mkrel 1
 Summary:       Nepomuk support files
 Group:         Graphical desktop/KDE
 License:       GPLv2+
-Url:           http://quickgit.kde.org/?p=kolena.git
+Url:           http://quickgit.kde.org/?p=%name.git
 Source0:       %{name}-%{version}.tar.bz2
 Patch0:        nepomukannotation-0.2.0-fix-build.patch
 BuildRoot:     %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires: kdelibs4-devel
 BuildRequires: tesseract-devel
 BuildRequires: nepomukextras-devel
+BuildRequires: kdebase4-devel
 
 %description
 Nepomuk support files
