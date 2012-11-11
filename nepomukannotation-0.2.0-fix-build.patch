@@ -1,0 +1,12 @@
+Index: plugins/context/CMakeLists.txt
+===================================================================
+--- plugins/context/CMakeLists.txt
++++ plugins/context/CMakeLists.txt	2011-04-06 10:44:33.000000000 +0200
+@@ -14,7 +14,6 @@
+   ${KDE4_KDEUI_LIBS}
+   ${KDE4_KIO_LIBS}
+   nepomukannotation
+-  nepomukcontext
+   nepomukextras
+ )
+ 
