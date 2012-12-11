@@ -1,90 +1,91 @@
-Name:          nepomukannotation
-Version:       0.2.0
-Release:       %mkrel 1
-Summary:       Nepomuk support files
-Group:         Graphical desktop/KDE
-License:       GPLv2+
-Url:           http://quickgit.kde.org/?p=%name.git
-Source0:       %{name}-%{version}.tar.bz2
-Patch0:        nepomukannotation-0.2.0-fix-build.patch
-BuildRoot:     %{_tmppath}/%{name}-%{version}-%{release}-buildroot
-BuildRequires: kdelibs4-devel
-BuildRequires: tesseract-devel
-BuildRequires: nepomukextras-devel
-BuildRequires: kdebase4-devel
+Name:		nepomukannotation
+Version:	0.2.0
+Release:	4
+Summary:	Set of tools that provides annotation suggestions for Nepomuk
+Group:		Graphical desktop/KDE
+License:	GPLv2+
+Url:		http://quickgit.kde.org/?p=%name.git
+Source0:	%{name}-%{version}.tar.bz2
+Patch0:		nepomukannotation-0.2.0-fix-build.patch
+Patch1:		nepomukannotation-0.2.0-soprano.patch
+Patch2:		nepomukannotation-0.2.0-linkage.patch
+BuildRequires:	doxygen
+BuildRequires:	kdelibs4-devel
+BuildRequires:	kdebase4-devel
+BuildRequires:	kdebase4-workspace-devel
+BuildRequires:	tesseract-devel
+BuildRequires:	nepomukextras-devel
 
 %description
-Nepomuk support files
+A library and a set of tools that provide annotation suggestions.
 
-%files -f %name.lang
-%defattr(-,root,root)
-%_kde_bindir/nepomuksimpleannotator
-%_kde_bindir/nepomuktextannotator
-%_kde_bindir/resourceeditor
-%_kde_libdir/kde4/*
-%_kde_datadir/applications/kde4/nepomuksimpleannotator.desktop
-%_kde_datadir/applications/kde4/nepomuktextannotator-app.desktop
-%_kde_datadir/dbus-1/interfaces/org.kde.nepomuk.UserContextService.xml
-%_kde_datadir/kde4/services/nepomukannotationplugins/contextannotationplugin.desktop
-%_kde_datadir/kde4/services/nepomukannotationplugins/dbpediaannotationplugin.desktop
-%_kde_datadir/kde4/services/nepomukannotationplugins/geonamesannotationplugin.desktop
-%_kde_datadir/kde4/services/nepomukannotationplugins/nepomuk_tagsannotationplugin.desktop
-%_kde_datadir/kde4/services/nepomukannotationplugins/nepomuk_webpageannotationplugin.desktop
-%_kde_datadir/kde4/services/nepomukannotationplugins/pimoannotationplugin.desktop
-%_kde_datadir/kde4/services/nepomukannotationplugins/pimotypeannotationplugin.desktop
-%_kde_datadir/kde4/services/nepomukannotationplugins/propertycreationannotationplugin.desktop
-%_kde_datadir/kde4/services/nepomukmenuplugin.desktop
-%_kde_datadir/kde4/services/nepomukusercontextservice.desktop
-%_kde_datadir/kde4/services/plasma-applet-nepomukcontextchooser.desktop
-%_kde_datadir/kde4/servicetypes/nepomuk-annotationplugin.desktop
+%files -f %{name}.lang
+%{_kde_bindir}/nepomuksimpleannotator
+%{_kde_bindir}/nepomuktextannotator
+%{_kde_bindir}/resourceeditor
+%{_kde_libdir}/kde4/*
+%{_kde_applicationsdir}/nepomuksimpleannotator.desktop
+%{_kde_applicationsdir}/nepomuktextannotator-app.desktop
+%{_kde_datadir}/dbus-1/interfaces/org.kde.nepomuk.UserContextService.xml
+%{_kde_services}/nepomukannotationplugins/contextannotationplugin.desktop
+%{_kde_services}/nepomukannotationplugins/dbpediaannotationplugin.desktop
+%{_kde_services}/nepomukannotationplugins/geonamesannotationplugin.desktop
+%{_kde_services}/nepomukannotationplugins/nepomuk_tagsannotationplugin.desktop
+%{_kde_services}/nepomukannotationplugins/nepomuk_webpageannotationplugin.desktop
+%{_kde_services}/nepomukannotationplugins/pimoannotationplugin.desktop
+%{_kde_services}/nepomukannotationplugins/pimotypeannotationplugin.desktop
+%{_kde_services}/nepomukannotationplugins/propertycreationannotationplugin.desktop
+%{_kde_services}/nepomukmenuplugin.desktop
+%{_kde_services}/nepomukusercontextservice.desktop
+%{_kde_services}/plasma-applet-nepomukcontextchooser.desktop
+%{_kde_servicetypes}/nepomuk-annotationplugin.desktop
 
 #-------------------------------------------------------------------------
 
 %define nepomukannotation_major 0
-%define libnepomukannotation %mklibname nepomukannotation %nepomukannotation_major
+%define libnepomukannotation %mklibname nepomukannotation %{nepomukannotation_major}
 
-%package -n %libnepomukannotation
-Summary:    Ktorrent libbrary
-Group:      System/Libraries
+%package -n %{libnepomukannotation}
+Summary:	%{name} library
+Group:		System/Libraries
 
-%description -n %libnepomukannotation
-KTorrent library.
+%description -n %{libnepomukannotation}
+A library and a set of tools that provide annotation suggestions. 
 
-%files -n %libnepomukannotation
-%defattr(-,root,root)
-%_kde_libdir/libnepomukannotation.so.%{nepomukannotation_major}*
+%files -n %{libnepomukannotation}
+%{_kde_libdir}/libnepomukannotation.so.%{nepomukannotation_major}*
 
 #-------------------------------------------------------------------------
 
 %package devel
-Summary: Ktorrent plugin devel headers
-Group: Networking/File transfer
-Requires: %{libnepomukannotation} = %{version}
+Summary:	%{name} devel headers
+Group:		System/Libraries
+Requires:	%{libnepomukannotation} = %{version}-%{release}
 
 %description devel
-Ktorrent plugin devel headers.
+A library and a set of tools that provide annotation suggestions.
+
+This package provides the devel files for %{name}
 
 %files devel
-%defattr(-,root,root)
-%_kde_includedir/nepomuk/*
-%_kde_libdir/libnepomukannotation.so
-%_kde_datadir/cmake/NepomukAnnotation
+%{_kde_includedir}/nepomuk/*
+%{_kde_libdir}/libnepomukannotation.so
+%{_kde_datadir}/cmake/NepomukAnnotation
 
 #-------------------------------------------------------------------------
 
 %prep
-%setup -q -n %name-%version
+%setup -q
 %patch0 -p0
+%patch1 -p1
+%patch2 -p1
 
 %build
-%cmake_kde4 
+%global ldflags %{ldflags} -fuse-ld=bfd
+%cmake_kde4
 %make
- 
+
 %install
-rm -rf %buildroot
 %makeinstall_std -C build
-%find_lang --all-name nepomukannotation nepomuk_pimoannotationplugin nepomuk_geonamesannotationplugin nepomuk_pimotypeannotationplugin nepomuk_webpageannotationplugin plasma_applet_nepomukcontextchooser nepomukmenuplugin 
+%find_lang --all-name nepomukannotation nepomuk_propertycreationannotationplugin nepomuk_pimoannotationplugin nepomuk_geonamesannotationplugin nepomuk_pimotypeannotationplugin nepomuk_webpageannotationplugin plasma_applet_nepomukcontextchooser nepomukmenuplugin %{name}.lang
 
-
-%clean
-rm -rf %buildroot

@@ -1,0 +1,11 @@
+diff -urN nepomukannotation-0.2.0/textannotator/CMakeLists.txt nepomukannotation-0.2.0-patched/textannotator/CMakeLists.txt
+--- nepomukannotation-0.2.0/textannotator/CMakeLists.txt	2011-03-08 20:23:53.000000000 +1000
++++ nepomukannotation-0.2.0-patched/textannotator/CMakeLists.txt	2012-10-11 18:52:23.046239700 +1100
+@@ -27,6 +27,7 @@
+   ${STRIGI_STREAMANALYZER_LIBRARY}
+   ${KDE4_KDECORE_LIBS}
+   ${KDE4_KDEUI_LIBS}
++  ${NEPOMUKEXTRAS_LIBRARIES}
+ )
+ 
+ install(TARGETS nepomuktextannotator DESTINATION ${BIN_INSTALL_DIR})
