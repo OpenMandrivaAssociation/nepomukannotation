@@ -1,19 +1,20 @@
+Summary:	Set of tools that provides annotation suggestions for Nepomuk
 Name:		nepomukannotation
 Version:	0.2.0
-Release:	4
-Summary:	Set of tools that provides annotation suggestions for Nepomuk
-Group:		Graphical desktop/KDE
+Release:	5
 License:	GPLv2+
+Group:		Graphical desktop/KDE
 Url:		http://quickgit.kde.org/?p=%name.git
 Source0:	%{name}-%{version}.tar.bz2
 Patch0:		nepomukannotation-0.2.0-fix-build.patch
 Patch1:		nepomukannotation-0.2.0-soprano.patch
 Patch2:		nepomukannotation-0.2.0-linkage.patch
 BuildRequires:	doxygen
-BuildRequires:	kdelibs4-devel
 BuildRequires:	kdebase4-devel
 BuildRequires:	kdebase4-workspace-devel
-BuildRequires:	tesseract-devel
+BuildRequires:	kdelibs4-devel
+BuildRequires:	pkgconfig(shared-desktop-ontologies)
+BuildRequires:	pkgconfig(tesseract)
 BuildRequires:	nepomukextras-devel
 
 %description
