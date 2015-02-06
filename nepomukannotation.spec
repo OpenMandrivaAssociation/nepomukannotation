@@ -1,7 +1,7 @@
 Summary:	Set of tools that provides annotation suggestions for Nepomuk
 Name:		nepomukannotation
 Version:	0.2.0
-Release:	5
+Release:	6
 License:	GPLv2+
 Group:		Graphical desktop/KDE
 Url:		http://quickgit.kde.org/?p=%name.git
