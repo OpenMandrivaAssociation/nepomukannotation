@@ -4,7 +4,7 @@ Version:	0.2.0
 Release:	6
 License:	GPLv2+
 Group:		Graphical desktop/KDE
-Url:		http://quickgit.kde.org/?p=%name.git
+Url:		https://quickgit.kde.org/?p=%name.git
 Source0:	%{name}-%{version}.tar.bz2
 Patch0:		nepomukannotation-0.2.0-fix-build.patch
 Patch1:		nepomukannotation-0.2.0-soprano.patch
