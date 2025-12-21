@@ -9,6 +9,7 @@ Source0:	%{name}-%{version}.tar.bz2
 Patch0:		nepomukannotation-0.2.0-fix-build.patch
 Patch1:		nepomukannotation-0.2.0-soprano.patch
 Patch2:		nepomukannotation-0.2.0-linkage.patch
+BuildRequires:	make
 BuildRequires:	doxygen
 BuildRequires:	kdebase4-devel
 BuildRequires:	kdebase4-workspace-devel
